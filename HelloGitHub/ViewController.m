@@ -8,15 +8,44 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController (){
+
+int countNumber;
+int plus;
+int mainasu;
+int AONumber;
+
+    
+}
+
 
 @end
 
 @implementation ViewController
 
+
+-(IBAction) zeroButtun_down:(id)sender{
+    if(AONumber == 0){
+     countNumber = countNumber*10+0;
+     resultLbl.text = [NSStringWithFormat:@"%d",countNumber];
+     }
+    if(AONumber == 1){
+        
+        
+     }
+    
+-(IBAction) purasuButtun_down:(id)sender{
+    Display
+    
+
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    countNumber = 0;
+    plus = 0;
+    mainasu = 0;
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
