@@ -7,7 +7,6 @@
         <!--View Controller-->
         <scene sceneID="5">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -240,7 +239,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="waruButton_down:" destination="2" eventType="touchUpInside" id="idI-kx-TO7"/>
+                                    <action selector="divButton_down:" destination="2" eventType="touchUpInside" id="eBW-jn-ec3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qIC-aV-nyh">
@@ -262,6 +261,7 @@
                     </view>
                     <connections>
                         <outlet property="clearButton" destination="qIC-aV-nyh" id="CWz-ks-kex"/>
+                        <outlet property="divButton" destination="yPK-kr-eQl" id="j6M-tc-bdc"/>
                         <outlet property="dotButton" destination="zzJ-Cz-geJ" id="eM7-Bo-lZx"/>
                         <outlet property="eightButton" destination="hh5-nR-HDi" id="24I-dR-4Wc"/>
                         <outlet property="fiveButton" destination="llL-84-vvP" id="abe-wU-Bba"/>
@@ -277,10 +277,10 @@
                         <outlet property="sixButton" destination="xF5-aS-mcZ" id="hQ9-qx-oE3"/>
                         <outlet property="threeButton" destination="Qc1-oA-A8H" id="ucz-mb-jSJ"/>
                         <outlet property="twoButton" destination="bn8-Zu-Tj1" id="3lI-bb-ibc"/>
-                        <outlet property="waruButton" destination="yPK-kr-eQl" id="a8W-NT-qBF"/>
                         <outlet property="zeroButton" destination="DsE-1A-S9b" id="jne-Qh-zX4"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
@@ -289,6 +289,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
                 <relationship kind="action" name="clearButton_down:"/>
+                <relationship kind="action" name="divButton_down:"/>
                 <relationship kind="action" name="dotButton_down:"/>
                 <relationship kind="action" name="eightButton_down:"/>
                 <relationship kind="action" name="fiveButton_down:"/>
@@ -306,6 +307,7 @@
                 <relationship kind="action" name="waruButton_down:"/>
                 <relationship kind="action" name="zeroButton_down:"/>
                 <relationship kind="outlet" name="clearButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="divButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="dotButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="eightButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="fiveButton" candidateClass="UIButton"/>

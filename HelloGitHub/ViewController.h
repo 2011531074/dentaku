@@ -25,7 +25,7 @@ IBOutlet UIButton *dotButton;
 IBOutlet UIButton *purasuButton;
 IBOutlet UIButton *mainasuButton;
 IBOutlet UIButton *multiButton;
-IBOutlet UIButton *waruButton;
+IBOutlet UIButton *divButton;
 IBOutlet UIButton *resultButton;
 IBOutlet UILabel *result;
     
@@ -46,7 +46,7 @@ IBOutlet UILabel *result;
 -(IBAction) purasuButton_down:(id)sender;
 -(IBAction) mainasuButton_down:(id)sender;
 -(IBAction) multiButton_down:(id)sender;
--(IBAction) waruButton_down:(id)sender;
+-(IBAction) divButton_down:(id)sender;
 -(IBAction) resultButton_down:(id)sender;
 
 

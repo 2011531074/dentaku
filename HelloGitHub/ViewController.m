@@ -7,15 +7,16 @@
 //
 
 #import "ViewController.h"
+#define PLUS 1
+#define MAINASU 2
+#define MULTI 3
+#define DIV 4
 
 @interface ViewController (){
 
-int countNumber;
-int plus;
-int mainasu;
+double countNumber;
+double nowNumber;
 int AONumber;
-int multi;
-int div;
     
 }
 
@@ -24,45 +25,72 @@ int div;
 
 @implementation ViewController
 
-
+-(IBAction) dotButton_down:(id)sender{
+    result.text = @"未実装です！";
+    }
+                    
 -(IBAction) purasuButton_down:(id)sender{
-    AONumber = 1;
-    countNumber = countNumber+plus;
-    plus = 0;
+    AONumber = PLUS;
+    countNumber = countNumber+nowNumber;
+    nowNumber = 0;
     result.text = @"0";
 }
 
 -(IBAction) mainasuButton_down:(id)sender{
-    AONumber = 2;
-    countNumber = countNumber-mainasu;
-    mainasu = 0;
+    AONumber = MAINASU;
+    countNumber = countNumber-nowNumber;
+    nowNumber = 0;
     result.text = @"0";
 }
 
 -(IBAction) multiButton_down:(id)sender{
-    AONumber = 3;
-    countNumber = countNumber*multi;
-    multi = 1;
+    AONumber = MULTI;
+    if(countNumber == 0){
+        countNumber = nowNumber;
+        }
+    else{
+        countNumber = countNumber*nowNumber;
+        }
+    nowNumber = 0;
     result.text = @"0";
 }
 
+-(IBAction) divButton_down:(id)sender{
+    AONumber = DIV;
+    if(countNumber == 0){
+        countNumber = nowNumber;
+        }
+    else{
+        countNumber = countNumber/nowNumber;
+        }
+    nowNumber = 0;
+    result.text = @"0";
+}
+
+
+
+
 -(IBAction) zeroButton_down:(id)sender{
     if(AONumber == 0){
-        countNumber = countNumber*10 + 0;
-        result.text = [NSString stringWithFormat:@"%d",countNumber];
+        nowNumber= nowNumber*10 + 0;
+        result.text = [NSString stringWithFormat:@"%g",nowNumber];
         }
-        else if(AONumber == 1){
-            plus = plus*10 + 0;
-            result.text = [NSString stringWithFormat:@"%d",plus];
-            }
-            else if(AONumber == 2){
-                mainasu = mainasu*10 + 0;
-                result.text = [NSString stringWithFormat:@"%d",mainasu];
-                }
-                else if(AONumber == 3){
-                    multi = multi*10 + 0;
-                    result.text = [NSString stringWithFormat:@"%d",multi];
-                    }
+    else if(AONumber == PLUS){
+        nowNumber = nowNumber*10 + 0;
+        result.text = [NSString stringWithFormat:@"%g",nowNumber];
+        }
+    else if(AONumber == MAINASU){
+        nowNumber = nowNumber*10 + 0;
+        result.text = [NSString stringWithFormat:@"%g",nowNumber];
+        }
+    else if(AONumber == MULTI){
+        nowNumber = nowNumber*10 + 0;
+        result.text = [NSString stringWithFormat:@"%g",nowNumber];
+        }
+    else if(AONumber == DIV){
+        nowNumber = nowNumber*10 + 0;
+        result.text = [NSString stringWithFormat:@"%g",nowNumber];
+        }
 }
 
 -(IBAction) oneButton_down:(id)sender{
@@ -103,39 +131,52 @@ int div;
 
 - (void) numberButton_down:(int)number{
     if(AONumber == 0){
-        countNumber = countNumber*10 + number;
-        result.text = [NSString stringWithFormat:@"%d",countNumber];
+        nowNumber = nowNumber*10 + number;
+        result.text = [NSString stringWithFormat:@"%g",nowNumber];
         }
-        else if(AONumber == 1){
-            plus = plus*10 + number;
-            result.text = [NSString stringWithFormat:@"%d",plus];
-            }
-             else if(AONumber == 2){
-                 mainasu = mainasu*10 + number;
-                 result.text = [NSString stringWithFormat:@"%d",mainasu];
-                }
-                else if(AONumber == 3){
-                    multi = multi*10 + number;
-                    result.text = [NSString stringWithFormat:@"%d",multi];
-                    }
-}
+    else if(AONumber == PLUS){
+        nowNumber = nowNumber*10 + number;
+        result.text = [NSString stringWithFormat:@"%g",nowNumber];
+        }
+    else if(AONumber == MAINASU){
+        nowNumber = nowNumber*10 + number;
+        result.text = [NSString stringWithFormat:@"%g",nowNumber];
+        }
+    else if(AONumber == MULTI){
+        nowNumber = nowNumber*10 + number;
+        result.text = [NSString stringWithFormat:@"%g",nowNumber];
+        }
+    else if(AONumber == DIV){
+        nowNumber = nowNumber*10 + number;
+        result.text = [NSString stringWithFormat:@"%g",nowNumber];
+        }
+    }
 
 -(IBAction) resultButton_down:(id)sender{
-        AONumber = 0;
-        countNumber = (countNumber+plus-mainasu)*multi;
-        plus = 0;
-        mainasu = 0;
-        multi = 0;
-        result.text = [NSString stringWithFormat:@"%d",countNumber];
+    if(AONumber == 0){
+        countNumber = nowNumber;
+        }
+    else if(AONumber == PLUS){
+        countNumber = countNumber+nowNumber;
+        }
+    else if(AONumber == MAINASU){
+        countNumber = countNumber-nowNumber;
+        }
+    else if(AONumber == MULTI){
+        countNumber = countNumber*nowNumber;
+        }
+    else if(AONumber == DIV){
+        countNumber = countNumber/nowNumber;
+        }
+        nowNumber = 0;
+        result.text = [NSString stringWithFormat:@"%g",countNumber];
 }
 
 -(IBAction) clearButton_down:(id)sender{
         AONumber = 0;
         countNumber = 0;
-        plus = 0;
-        mainasu = 0;
-        multi = 1;
-        result.text = [NSString stringWithFormat:@"%d",countNumber];
+        nowNumber = 0;
+        result.text = [NSString stringWithFormat:@"%g",countNumber];
 }
 
 - (void)viewDidLoad
@@ -143,9 +184,7 @@ int div;
     [super viewDidLoad];
     countNumber = 0;
     AONumber = 0;
-    plus = 0;
-    mainasu = 0;
-    multi = 1;
+    nowNumber = 0;
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
