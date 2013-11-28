@@ -31,14 +31,24 @@ int AONumber;
                     
 -(IBAction) purasuButton_down:(id)sender{
     AONumber = PLUS;
-    countNumber = countNumber+nowNumber;
-    nowNumber = 0;
+    if(countNumber == 0){
+        countNumber = nowNumber;
+        }
+    else{
+        countNumber = countNumber+nowNumber;
+        nowNumber = 0;
+        }
     result.text = @"0";
 }
 
 -(IBAction) mainasuButton_down:(id)sender{
     AONumber = MAINASU;
+    if(countNumber == 0){
+        countNumber = nowNumber;
+        }
+    else{
     countNumber = countNumber-nowNumber;
+        }
     nowNumber = 0;
     result.text = @"0";
 }
@@ -57,7 +67,7 @@ int AONumber;
 
 -(IBAction) divButton_down:(id)sender{
     AONumber = DIV;
-    if(countNumber == 0){
+   if(countNumber == 0){
         countNumber = nowNumber;
         }
     else{
@@ -68,108 +78,68 @@ int AONumber;
 }
 
 
-
-
 -(IBAction) zeroButton_down:(id)sender{
-    if(AONumber == 0){
-        nowNumber= nowNumber*10 + 0;
-        result.text = [NSString stringWithFormat:@"%g",nowNumber];
-        }
-    else if(AONumber == PLUS){
-        nowNumber = nowNumber*10 + 0;
-        result.text = [NSString stringWithFormat:@"%g",nowNumber];
-        }
-    else if(AONumber == MAINASU){
-        nowNumber = nowNumber*10 + 0;
-        result.text = [NSString stringWithFormat:@"%g",nowNumber];
-        }
-    else if(AONumber == MULTI){
-        nowNumber = nowNumber*10 + 0;
-        result.text = [NSString stringWithFormat:@"%g",nowNumber];
-        }
-    else if(AONumber == DIV){
-        nowNumber = nowNumber*10 + 0;
-        result.text = [NSString stringWithFormat:@"%g",nowNumber];
-        }
-}
+    nowNumber= nowNumber*10 + 0;
+    result.text = [NSString stringWithFormat:@"%g",nowNumber];
+    }
 
--(IBAction) oneButton_down:(id)sender{
+/*-(IBAction) oneButton_down:(id)sender{
     [self numberButton_down:1];
 }
-
 -(IBAction) twoButton_down:(id)sender{
     [self numberButton_down:2];
 }
-
 -(IBAction) threeButton_down:(id)sender{
     [self numberButton_down:3];
 }
-
 -(IBAction) fourButton_down:(id)sender{
     [self numberButton_down:4];
 }
-
 -(IBAction) fiveButton_down:(id)sender{
     [self numberButton_down:5];
 }
-
 -(IBAction) sixButton_down:(id)sender{
     [self numberButton_down:6];
 }
-
 -(IBAction) sevenButton_down:(id)sender{
     [self numberButton_down:7];
 }
-
 -(IBAction) eightButton_down:(id)sender{
     [self numberButton_down:8];
 }
-
 -(IBAction) nineButton_down:(id)sender{
     [self numberButton_down:9];
-}
+}*/　　//タグ実装予定
 
 - (void) numberButton_down:(int)number{
-    if(AONumber == 0){
         nowNumber = nowNumber*10 + number;
         result.text = [NSString stringWithFormat:@"%g",nowNumber];
         }
-    else if(AONumber == PLUS){
-        nowNumber = nowNumber*10 + number;
-        result.text = [NSString stringWithFormat:@"%g",nowNumber];
-        }
-    else if(AONumber == MAINASU){
-        nowNumber = nowNumber*10 + number;
-        result.text = [NSString stringWithFormat:@"%g",nowNumber];
-        }
-    else if(AONumber == MULTI){
-        nowNumber = nowNumber*10 + number;
-        result.text = [NSString stringWithFormat:@"%g",nowNumber];
-        }
-    else if(AONumber == DIV){
-        nowNumber = nowNumber*10 + number;
-        result.text = [NSString stringWithFormat:@"%g",nowNumber];
-        }
-    }
-
+   
 -(IBAction) resultButton_down:(id)sender{
-    if(AONumber == 0){
-        countNumber = nowNumber;
+    if(countNumber == 0){
+        result.text = [NSString stringWithFormat:@"%g",nowNumber];
         }
-    else if(AONumber == PLUS){
-        countNumber = countNumber+nowNumber;
+    else{
+        if(AONumber == 0){
+            countNumber = nowNumber;
+            }
+        else if(AONumber == PLUS){
+            countNumber = countNumber+nowNumber;
+            }
+        else if(AONumber == MAINASU){
+            countNumber = countNumber-nowNumber;
+            }
+        else if(AONumber == MULTI){
+            countNumber = countNumber*nowNumber;
+            }
+        else if(AONumber == DIV){
+            countNumber = countNumber/nowNumber;
+            }
+        nowNumber = countNumber;
+        countNumber = 0;
+        result.text = [NSString stringWithFormat:@"%g",nowNumber];
         }
-    else if(AONumber == MAINASU){
-        countNumber = countNumber-nowNumber;
-        }
-    else if(AONumber == MULTI){
-        countNumber = countNumber*nowNumber;
-        }
-    else if(AONumber == DIV){
-        countNumber = countNumber/nowNumber;
-        }
-        nowNumber = 0;
-        result.text = [NSString stringWithFormat:@"%g",countNumber];
 }
 
 -(IBAction) clearButton_down:(id)sender{
