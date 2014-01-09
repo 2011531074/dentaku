@@ -36,8 +36,8 @@ int AONumber;
         }
     else{
         countNumber = countNumber+nowNumber;
-        nowNumber = 0;
         }
+        nowNumber = 0;
     result.text = @"0";
 }
 
@@ -83,7 +83,7 @@ int AONumber;
     result.text = [NSString stringWithFormat:@"%g",nowNumber];
     }
 
-/*-(IBAction) oneButton_down:(id)sender{
+-(IBAction) oneButton_down:(id)sender{
     [self numberButton_down:1];
 }
 -(IBAction) twoButton_down:(id)sender{
@@ -109,7 +109,7 @@ int AONumber;
 }
 -(IBAction) nineButton_down:(id)sender{
     [self numberButton_down:9];
-}*/　　//タグ実装予定
+}
 
 - (void) numberButton_down:(int)number{
         nowNumber = nowNumber*10 + number;
